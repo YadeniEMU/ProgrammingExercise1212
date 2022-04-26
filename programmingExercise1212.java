@@ -2,23 +2,39 @@ import java.util.*;
 import java.io.*;
 
 public class programmingExercise1212 {
+
 	/** Main method */
-	
 	public static void main(String[] args) throws Exception {
 		if (args.length != 1) {
 			System.out.println("Usage: java Exercise_12_12 file");
 			System.exit(1);
 		}
+		chechIfFileExists();
+		convertToNextLine();
+		writeTextToFile();
+	}
 
-		// Create file object
+	public static void checkIfFIleExists(){
 		File file = new File(args[0]);
-
-		// Check if file exists
 		if (!file.exists()) {
 			System.out.println("File " + args[0] + " does not exist");
-			System.exit(2);
+			System.exit(1);
 		}
+	}
+	
+	public static void writeTextToFile(){
+				// Write text to file
+				try (
+					// Create an output file
+					PrintWriter output = new PrintWriter(file);
+				) {
+					for (int i = 0; i < list.size(); i++) {
+						output.println(list.get(i));
+					}
+				}
+			}
 
+	public static void convertToNextLine(){
 		// Create an ArrayList
 		ArrayList<String> list = new ArrayList<>();
 		String string1 = "";
@@ -45,16 +61,6 @@ public class programmingExercise1212 {
 				}
 			}
 			list.add(string1);
-		}
-
-		// Write text to file
-		try (
-			// Create an output file
-			PrintWriter output = new PrintWriter(file);
-		) {
-			for (int i = 0; i < list.size(); i++) {
-				output.println(list.get(i));
-			}
 		}
 	}
 }
